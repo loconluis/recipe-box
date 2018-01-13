@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { ListGroupItem, Button, Collapse, Card, CardBody } from 'reactstrap';
+// Components
+import IngredientsList from './IngredientsList';
 
 class RecipeItems extends Component {
   constructor(props) {
@@ -14,7 +16,6 @@ class RecipeItems extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <ListGroupItem>
         { this.props.name }
@@ -23,7 +24,7 @@ class RecipeItems extends Component {
           <Card>
             <CardBody>
               <h3 className="text-center">Ingredients</h3>
-              {this.props.ingredients}
+              <IngredientsList ingredients={this.props.ingredients} />
             </CardBody>
           </Card>
         </Collapse>

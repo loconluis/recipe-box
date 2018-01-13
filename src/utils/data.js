@@ -5,23 +5,23 @@ const recipes = [
   },
   {
     title: 'Pasta',
-    ingredients: 'something here'
+    ingredients: ['something here']
   },
   {
     title: 'Rabiolli',
-    ingredients: 'something here'
+    ingredients: ['something here']
   },
   {
     title: 'Lasgna',
-    ingredients: 'something here'
+    ingredients: ['something here']
   },
   {
     title: 'Fetuccini',
-    ingredients: 'something here'
+    ingredients: ['something here']
   },
   {
     title: 'Pavaroti',
-    ingredients: 'something here'
+    ingredients: ['something here']
   },
 ]
 
