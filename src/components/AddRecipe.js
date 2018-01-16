@@ -23,6 +23,9 @@ class AddRecipe extends Component {
 
   handleAddRecipe = (e) => {
     e.preventDefault();
+    const recipe = {
+      title: e.target.elements.title.value.trim(),
+    }
   }
 
   render () {
@@ -32,10 +35,10 @@ class AddRecipe extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>New Recipe</ModalHeader>
           <ModalBody>
-            <Form>
+            <Form onSubmit={this.handleAddRecipe}>
               <FormGroup>
                 <Label for="title">Name for Recipe</Label>
-                <Input type="text" name="title" id="titleRecipe" placeholder="Name your recipe" />
+                <Input bsSize="lg" type="text" name="title" id="titleRecipe" placeholder="Name your recipe" />
               </FormGroup>
               <FormGroup>
                 <Label for="ingredients">Ingredients</Label>
