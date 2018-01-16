@@ -53,7 +53,7 @@ class AddRecipe extends Component {
                 <Label for="ingredients">Ingredients</Label>
                 <Input type="textarea" name="ingredients" id="ingredientsText" placeholder="Write all ingredients separate with commas (,)" />
               </FormGroup>
-              <Button color="primary">Enviar</Button>
+              <Button color="primary">Save</Button>
             </Form>
           </ModalBody>
         </Modal>

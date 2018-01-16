@@ -53,7 +53,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state.recipes);
     return (
       <div>
         <header>
@@ -72,6 +71,15 @@ class App extends Component {
           recipes={this.state.recipes}
           handleDeleteRecipe={this.handleDeleteRecipe}
         />
+        <footer>
+          <Container>
+            <Row>
+              <Col>
+                <p className="text-center"><a href="https://github.com/loconluis/recipe-box" target="_blank" rel="noopener noreferrer">src</a> <i className="fas fa-code"></i> with <i className="fas fa-heart"></i> and <a href="www.reactjs.org" target="_blank" rel="noopener noreferrer"><i className="fab fa-react"></i></a> by <a href="www.twitter.com/LoconLuis" target="_blank" rel="noopener noreferrer" ><i className="fab fa-twitter"></i> @LoconLuis</a></p>
+              </Col>
+            </Row>
+          </Container>
+        </footer>
       </div>
     );
   }

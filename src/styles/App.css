@@ -29,6 +29,26 @@ button:disabled {
   padding: 0 20px;
   font-size: 1.8rem; }
 
+.btn-not-than-big {
+  padding: 0 15px;
+  font-size: 1.4rem; }
+
+.delete-btn {
+  margin-top: 10px; }
+
 .list-flex {
   display: flex;
   justify-content: space-between; }
+
+.collapse-div {
+  margin-top: 10px; }
+
+footer {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.fa-twitter {
+  color: #1c88cb; }
+
+.fa-heart {
+  color: red; }
