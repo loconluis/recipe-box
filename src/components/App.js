@@ -6,10 +6,45 @@ import {
   Container,
   Row,
   Col,
-  Button
-  } from 'reactstrap';
+} from 'reactstrap';
+import AddRecipe from './AddRecipe';
 
 class App extends Component {
+
+  state = {
+    recipes: [],
+  }
+
+  handleAddRecipe = (recipe) => {
+    if(!recipe) {
+      return 'Not valid values';
+    }
+
+    this.setState(prevState => ({ recipes: prevState.recipes.concat(recipe) }));
+  }
+
+  componentDidMount () {
+    try{
+      const json = localStorage.getItem('recipes');
+      const recipes = JSON.parse(json);
+
+      if(recipes) {
+        this.setState(() => ({ recipes }))
+      }
+    } catch (e) {
+      // Do nothig at all
+    }
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if(prevState.recipes.length !== this.state.recipes.length) {
+      const json = JSON.stringify(this.state.recipes);
+      localStorage.setItem('recipes', json);
+    }
+  }
+  
+  
+
   render() {
     return (
       <div>
@@ -18,7 +53,7 @@ class App extends Component {
             <Row>
               <Col className="header">
                 <h1>Recipe Box</h1>
-                <Button className="btn-big" color="danger" onClick={this.toggle}>Add</Button>
+                <AddRecipe />
               </Col>
             </Row>
           </Container>

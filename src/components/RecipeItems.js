@@ -19,7 +19,7 @@ class RecipeItems extends Component {
     return (
       <ListGroupItem>
         { this.props.name }
-        <Button color="primary" onClick={this.toggle}>Toggle</Button>
+        <Button color="primary" onClick={this.toggle}>Open</Button>
         <Collapse isOpen={this.state.collapse}>
           <Card>
             <CardBody>
