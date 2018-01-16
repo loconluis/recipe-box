@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-// Components
 import RecipeList from './RecipeList';
 import { 
   Container,
   Row,
   Col,
 } from 'reactstrap';
+// styles
+import '../styles/App.css';
+// Components
 import AddRecipe from './AddRecipe';
+// seed data
+import data from '../utils/data';
 
 class App extends Component {
 
   state = {
-    recipes: [],
+    recipes: data || [],
   }
 
   handleAddRecipe = (recipe) => {
@@ -43,9 +46,8 @@ class App extends Component {
     }
   }
   
-  
-
   render() {
+    console.log(this.state.recipes);
     return (
       <div>
         <header>
@@ -53,12 +55,16 @@ class App extends Component {
             <Row>
               <Col className="header">
                 <h1>Recipe Box</h1>
-                <AddRecipe />
+                <AddRecipe
+                  handleAddRecipe={this.handleAddRecipe}
+                />
               </Col>
             </Row>
           </Container>
         </header>
-        <RecipeList />
+        <RecipeList
+          recipes={this.state.recipes}
+        />
       </div>
     );
   }

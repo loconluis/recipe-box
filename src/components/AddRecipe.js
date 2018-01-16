@@ -23,8 +23,19 @@ class AddRecipe extends Component {
 
   handleAddRecipe = (e) => {
     e.preventDefault();
+    const title = e.target.elements.title.value.trim();
+    const ingredients = e.target.elements.ingredients.value.split(',')
+
     const recipe = {
-      title: e.target.elements.title.value.trim(),
+      title,
+      ingredients,
+    }
+
+    const error = this.props.handleAddRecipe(recipe);
+    this.setState(() => ({ error }))
+    if(!error) {
+      e.target.elements.title.value = "";
+      e.target.elements.ingredients.value = "";
     }
   }
 
@@ -44,13 +55,9 @@ class AddRecipe extends Component {
                 <Label for="ingredients">Ingredients</Label>
                 <Input type="textarea" name="ingredients" id="ingredientsText" placeholder="Write all ingredients separate with commas (,)" />
               </FormGroup>
-              <Button>Enviar</Button>
+              <Button color="primary">Enviar</Button>
             </Form>
           </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Save</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
         </Modal>
       </div>
     )
