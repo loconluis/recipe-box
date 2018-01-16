@@ -26,6 +26,12 @@ class App extends Component {
     this.setState(prevState => ({ recipes: prevState.recipes.concat(recipe) }));
   }
 
+  handleDeleteRecipe = (recipeToRemove) => {
+    this.setState((prevState) => ({
+      recipes: prevState.recipes.filter(recipe => recipeToRemove !== recipe.title)
+    }))
+  }
+
   componentDidMount () {
     try{
       const json = localStorage.getItem('recipes');
@@ -64,6 +70,7 @@ class App extends Component {
         </header>
         <RecipeList
           recipes={this.state.recipes}
+          handleDeleteRecipe={this.handleDeleteRecipe}
         />
       </div>
     );

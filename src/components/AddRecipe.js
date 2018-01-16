@@ -3,12 +3,10 @@ import { Button,
   Modal,
   ModalBody,
   ModalHeader,
-  ModalFooter,
   Form,
   FormGroup,
   Label,
   Input,
-  FormText
 } from 'reactstrap';
 
 class AddRecipe extends Component {
@@ -42,7 +40,7 @@ class AddRecipe extends Component {
   render () {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>Add</Button>
+        <Button className="btn-big" color="danger" onClick={this.toggle}>Add</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>New Recipe</ModalHeader>
           <ModalBody>

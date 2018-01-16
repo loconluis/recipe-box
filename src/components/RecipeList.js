@@ -7,14 +7,19 @@ import {
   } from 'reactstrap';
 import RecipeItems from './RecipeItems';
 
-export default ({ recipes }) => {
+export default ({ recipes, handleDeleteRecipe }) => {
   return (
     <Container>
       <Row>
         <Col>
           <ListGroup>
           {
-            recipes.map((recipe, i) => <RecipeItems key={i} name={recipe.title} ingredients={recipe.ingredients} />)
+            recipes.map((recipe, i) => <RecipeItems
+              key={i}
+              name={recipe.title}
+              ingredients={recipe.ingredients}
+              handleDeleteRecipe={handleDeleteRecipe}
+            />)
           }
           </ListGroup>
         </Col>

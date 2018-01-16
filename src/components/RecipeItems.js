@@ -17,14 +17,20 @@ class RecipeItems extends Component {
 
   render () {
     return (
-      <ListGroupItem>
-        { this.props.name }
+      <ListGroupItem
+        className={this.state.collapse ? "" : "list-flex" }
+      >
+        <p>{ this.props.name }</p>
         <Button color="primary" onClick={this.toggle}>Open</Button>
         <Collapse isOpen={this.state.collapse}>
           <Card>
             <CardBody>
               <h3 className="text-center">Ingredients</h3>
               <IngredientsList ingredients={this.props.ingredients} />
+              <Button
+                color="danger"
+                onClick={(e) => { this.props.handleDeleteRecipe(this.props.name) }}
+              >Delete</Button>
             </CardBody>
           </Card>
         </Collapse>
